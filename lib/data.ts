@@ -65,12 +65,12 @@ export const projects: Project[] = [
     github: 'https://github.com/kaungsike/go-and-gin-rest-api-starter-kit',
   },
   {
-    name: 'learn-react-native',
+    name: 'Core 235 Hackathon 2025',
     description:
-      'Hands-on React Native learning with TypeScript — UI components, stack/tab navigation, and Expo integrations.',
-    language: 'TypeScript',
-    langColor: '#3178C6',
-    github: 'https://github.com/kaungsike/learn-react-native',
+      'Hackathon project for Core 235 Hackatom 2025, showcasing a landing page built with React, demonstrating modern web development practices and responsive design.',
+    language: 'React',
+    langColor: '#61DAFB',
+    github: 'https://github.com/kaungsike/Hackatom2025',
   },
   {
     name: 'React',
