@@ -3,6 +3,9 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { skillGroups } from '@/lib/data'
+import { useLang } from '@/lib/context'
+import { translations } from '@/lib/translations'
+import TechIcon from '@/components/TechIcon'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -16,37 +19,40 @@ const fadeUp = {
 export default function Skills() {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
+  const { lang } = useLang()
+  const t = translations[lang].skills
 
   return (
-    <section id="skills" style={{ padding: '96px 24px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-      <div ref={ref} style={{ maxWidth: '1100px', margin: '0 auto' }}>
+    <section id="skills" className="py-24 px-6 border-t border-gray-100 dark:border-white/5">
+      <div ref={ref} className="max-w-275 mx-auto">
         <motion.p
           variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0}
-          style={{ fontSize: '12px', fontWeight: 600, color: '#6366f1', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '12px' }}
+          className="text-xs font-semibold text-indigo-500 tracking-[0.12em] uppercase mb-3"
         >
-          Skills
+          {t.label}
         </motion.p>
         <motion.h2
           variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0.1}
-          style={{ fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 700, letterSpacing: '-0.03em', color: '#f0f0f0', marginBottom: '48px' }}
+          className="text-[clamp(28px,5vw,40px)] font-bold tracking-[-0.03em] text-gray-900 dark:text-[#f0f0f0] mb-12"
         >
-          Tech I work with
+          {t.heading}
         </motion.h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {skillGroups.map((group, gi) => (
             <motion.div
               key={group.category}
               variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0.15 + gi * 0.08}
-              style={{ padding: '28px', borderRadius: '12px', background: '#111', border: '1px solid rgba(255,255,255,0.06)' }}
+              className="p-7 rounded-xl bg-gray-50 dark:bg-[#111] border border-gray-100 dark:border-white/6"
             >
-              <p style={{ fontSize: '11px', fontWeight: 600, color: '#555', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '20px' }}>
+              <p className="text-[11px] font-semibold text-gray-400 dark:text-[#555] tracking-widest uppercase mb-5">
                 {group.category}
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div className="flex flex-col gap-3">
                 {group.items.map((skill) => (
-                  <div key={skill.name} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: skill.color, flexShrink: 0 }} />
-                    <span style={{ fontSize: '14px', color: '#ccc', fontWeight: 500 }}>{skill.name}</span>
+                  <div key={skill.name} className="flex items-center gap-3">
+                    <TechIcon name={skill.name} size={22} />
+                    <span className="text-sm text-gray-700 dark:text-[#ccc] font-medium">{skill.name}</span>
                   </div>
                 ))}
               </div>
