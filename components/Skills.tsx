@@ -24,7 +24,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="py-24 px-6 border-t border-gray-100 dark:border-white/5">
-      <div ref={ref} className="max-w-[1100px] mx-auto">
+      <div ref={ref} className="max-w-275 mx-auto">
         <motion.p
           variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0}
           className="text-xs font-semibold text-indigo-500 tracking-[0.12em] uppercase mb-3"
@@ -45,7 +45,7 @@ export default function Skills() {
               variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0.15 + gi * 0.08}
               className="p-7 rounded-xl bg-gray-50 dark:bg-[#111] border border-gray-100 dark:border-white/6"
             >
-              <p className="text-[11px] font-semibold text-gray-400 dark:text-[#555] tracking-[0.1em] uppercase mb-5">
+              <p className="text-[11px] font-semibold text-gray-400 dark:text-[#555] tracking-widest uppercase mb-5">
                 {group.category}
               </p>
               <div className="flex flex-col gap-3">

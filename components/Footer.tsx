@@ -11,7 +11,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-gray-100 dark:border-white/5 py-7 px-6">
-      <div className="max-w-[1100px] mx-auto flex items-center justify-between flex-wrap gap-3">
+      <div className="max-w-275 mx-auto flex items-center justify-between flex-wrap gap-3">
         <p className="text-[13px] text-gray-400 dark:text-[#444]">
           {t.rights(year, profile.name)}
         </p>

@@ -22,7 +22,7 @@ function ProfileImage() {
   if (imgError) {
     // Initials fallback
     return (
-      <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-indigo-500/10 dark:bg-indigo-500/15 border-2 border-indigo-500/20 dark:border-indigo-500/25 flex items-center justify-center flex-shrink-0">
+      <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-indigo-500/10 dark:bg-indigo-500/15 border-2 border-indigo-500/20 dark:border-indigo-500/25 flex items-center justify-center shrink-0">
         <span className="text-3xl sm:text-4xl font-bold text-indigo-500 tracking-tight select-none">
           {profile.name.split(' ').map(n => n[0]).join('')}
         </span>
@@ -31,9 +31,9 @@ function ProfileImage() {
   }
 
   return (
-    <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-2 border-indigo-500/20 dark:border-indigo-500/25 shadow-lg flex-shrink-0">
+    <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-2 border-indigo-500/20 dark:border-indigo-500/25 shadow-lg shrink-0">
       <Image
-        src="/profile.svg"
+        src="/profile.jpg"
         alt={profile.name}
         width={176}
         height={176}
@@ -58,7 +58,7 @@ export default function Hero() {
       {/* Background gradient */}
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_50%_-10%,rgba(99,102,241,0.10)_0%,transparent_70%)]" />
 
-      <div className="max-w-[800px] w-full relative">
+      <div className="max-w-200 w-full relative">
         {/* Layout: column on mobile, row on desktop */}
         <div className="flex flex-col-reverse sm:flex-row items-center gap-10 sm:gap-16">
           {/* Text side */}
@@ -86,7 +86,7 @@ export default function Hero() {
 
             <motion.p
               variants={fadeUp} initial="hidden" animate="visible" custom={0.3}
-              className="text-base text-gray-500 dark:text-[#666] leading-[1.7] max-w-[500px] mb-10 mx-auto sm:mx-0"
+              className="text-base text-gray-500 dark:text-[#666] leading-[1.7] max-w-125 mb-10 mx-auto sm:mx-0"
             >
               {profile.bio}
             </motion.p>
@@ -121,7 +121,7 @@ export default function Hero() {
           {/* Profile image side */}
           <motion.div
             variants={fadeUp} initial="hidden" animate="visible" custom={0.15}
-            className="flex-shrink-0"
+            className="shrink-0"
           >
             <ProfileImage />
           </motion.div>

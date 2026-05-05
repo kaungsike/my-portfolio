@@ -29,7 +29,7 @@ export default function About() {
 
   return (
     <section id="about" className="py-24 px-6">
-      <div ref={ref} className="max-w-[1100px] mx-auto">
+      <div ref={ref} className="max-w-275 mx-auto">
         <motion.p
           variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0}
           className="text-xs font-semibold text-indigo-500 tracking-[0.12em] uppercase mb-3"

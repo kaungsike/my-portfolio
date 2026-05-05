@@ -40,7 +40,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-24 px-6 pb-32 border-t border-gray-100 dark:border-white/5">
-      <div ref={ref} className="max-w-[640px] mx-auto text-center">
+      <div ref={ref} className="max-w-160 mx-auto text-center">
         <motion.p
           variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0}
           className="text-xs font-semibold text-indigo-500 tracking-[0.12em] uppercase mb-3"
@@ -73,7 +73,7 @@ export default function Contact() {
               href={link.href}
               target={link.external ? '_blank' : undefined}
               rel={link.external ? 'noopener noreferrer' : undefined}
-              className="flex flex-col items-center gap-1 px-8 py-5 min-w-[140px] rounded-xl bg-gray-50 dark:bg-[#111] border border-gray-100 dark:border-white/6 no-underline hover:border-gray-300 dark:hover:border-white/16 hover:-translate-y-0.5 transition-all duration-200"
+              className="flex flex-col items-center gap-1 px-8 py-5 min-w-35 rounded-xl bg-gray-50 dark:bg-[#111] border border-gray-100 dark:border-white/6 no-underline hover:border-gray-300 dark:hover:border-white/16 hover:-translate-y-0.5 transition-all duration-200"
             >
               <span className="text-[15px] font-semibold text-gray-900 dark:text-[#f0f0f0]">{link.label}</span>
               <span className="text-xs text-gray-400 dark:text-[#555]">{link.description}</span>

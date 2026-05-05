@@ -23,7 +23,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-24 px-6 border-t border-gray-100 dark:border-white/5">
-      <div ref={ref} className="max-w-[1100px] mx-auto">
+      <div ref={ref} className="max-w-275 mx-auto">
         <motion.p
           variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0}
           className="text-xs font-semibold text-indigo-500 tracking-[0.12em] uppercase mb-3"
@@ -52,19 +52,19 @@ export default function Projects() {
             >
               {/* Card header icon */}
               <div className="flex items-start justify-between mb-4">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-gray-400 dark:text-[#555] flex-shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-gray-400 dark:text-[#555] shrink-0">
                   <path d="M3 3h18v18H3V3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
                   <path d="M3 9h18M9 21V9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
               </div>
 
               {/* Name */}
-              <h3 className="text-[15px] font-semibold text-gray-900 dark:text-[#f0f0f0] mb-2.5 tracking-[-0.01em] break-words">
+              <h3 className="text-[15px] font-semibold text-gray-900 dark:text-[#f0f0f0] mb-2.5 tracking-[-0.01em] wrap-break-word">
                 {project.name}
               </h3>
 
               {/* Description */}
-              <p className="text-[13px] text-gray-500 dark:text-[#666] leading-[1.65] flex-grow mb-5">
+              <p className="text-[13px] text-gray-500 dark:text-[#666] leading-[1.65] grow mb-5">
                 {project.description}
               </p>
 
