@@ -3,6 +3,8 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { profile } from '@/lib/data'
+import { useLang } from '@/lib/context'
+import { translations } from '@/lib/translations'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -13,112 +15,56 @@ const fadeUp = {
   }),
 }
 
-const stats = [
-  { label: 'Repositories', value: `${profile.repos}+` },
-  { label: 'Languages', value: '5+' },
-  { label: 'Timezone', value: 'UTC +06:30' },
-]
-
 export default function About() {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
+  const { lang } = useLang()
+  const t = translations[lang].about
+
+  const stats = [
+    { label: t.repos, value: `${profile.repos}+` },
+    { label: t.languages, value: '5+' },
+    { label: t.timezone, value: 'UTC +06:30' },
+  ]
 
   return (
-    <section id="about" style={{ padding: '96px 24px' }}>
-      <div ref={ref} style={{ maxWidth: '1100px', margin: '0 auto' }}>
+    <section id="about" className="py-24 px-6">
+      <div ref={ref} className="max-w-[1100px] mx-auto">
         <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          custom={0}
-          style={{
-            fontSize: '12px',
-            fontWeight: 600,
-            color: '#6366f1',
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            marginBottom: '12px',
-          }}
+          variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0}
+          className="text-xs font-semibold text-indigo-500 tracking-[0.12em] uppercase mb-3"
         >
-          About
+          {t.label}
         </motion.p>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '48px',
-            alignItems: 'start',
-          }}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 items-start">
           <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? 'visible' : 'hidden'}
-            custom={0.1}
+            variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0.1}
           >
-            <h2
-              style={{
-                fontSize: 'clamp(28px, 5vw, 40px)',
-                fontWeight: 700,
-                letterSpacing: '-0.03em',
-                color: '#f0f0f0',
-                lineHeight: 1.15,
-                marginBottom: '20px',
-              }}
-            >
-              Building things that work.
+            <h2 className="text-[clamp(28px,5vw,40px)] font-bold tracking-[-0.03em] text-gray-900 dark:text-[#f0f0f0] leading-[1.15] mb-5">
+              {t.heading}
             </h2>
-            <p
-              style={{
-                fontSize: '16px',
-                color: '#888',
-                lineHeight: 1.8,
-                marginBottom: '16px',
-              }}
-            >
-              I&apos;m a self-driven developer from Myanmar with a passion for building practical software. I work across the full stack — from Go-powered REST APIs to React and React Native front-ends.
+            <p className="text-base text-gray-500 dark:text-[#888] leading-[1.8] mb-4">
+              {t.p1}
             </p>
-            <p
-              style={{
-                fontSize: '16px',
-                color: '#888',
-                lineHeight: 1.8,
-              }}
-            >
-              I believe in learning by building. Every project in my GitHub is a step forward, whether it&apos;s understanding clean architecture in Go, or exploring TypeScript patterns in React Native.
+            <p className="text-base text-gray-500 dark:text-[#888] leading-[1.8]">
+              {t.p2}
             </p>
           </motion.div>
 
           <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? 'visible' : 'hidden'}
-            custom={0.2}
-            style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
+            variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0.2}
+            className="flex flex-col gap-4"
           >
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                style={{
-                  padding: '24px',
-                  borderRadius: '12px',
-                  background: '#111',
-                  border: '1px solid rgba(255,255,255,0.06)',
-                }}
+                className="p-6 rounded-xl bg-gray-50 dark:bg-[#111] border border-gray-100 dark:border-white/6"
               >
-                <p
-                  style={{
-                    fontSize: '32px',
-                    fontWeight: 700,
-                    color: '#f0f0f0',
-                    letterSpacing: '-0.03em',
-                    marginBottom: '4px',
-                  }}
-                >
+                <p className="text-[32px] font-bold text-gray-900 dark:text-[#f0f0f0] tracking-[-0.03em] mb-1">
                   {stat.value}
                 </p>
-                <p style={{ fontSize: '13px', color: '#555', fontWeight: 500 }}>{stat.label}</p>
+                <p className="text-sm text-gray-400 dark:text-[#555] font-medium">{stat.label}</p>
               </div>
             ))}
           </motion.div>
