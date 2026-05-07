@@ -34,12 +34,14 @@ export const skillGroups: SkillGroup[] = [
     items: [
       { name: "PHP" },
       { name: "Laravel" },
+      { name: "C#" },
       { name: "ASP.NET" },
       { name: "Go" },
       { name: "REST APIs" },
       { name: "Gin" },
       { name: "MySQL" },
       { name: "PostgreSQL" },
+      { name: "Microsoft SQL Server" },
     ],
   },
   {
@@ -60,9 +62,9 @@ export const skillGroups: SkillGroup[] = [
 export type Project = {
   name: string;
   description: string;
-  technologies: string[]; 
+  technologies: string[];
   github?: string;
-  demo?: string; 
+  demo?: string;
   isPrivate?: boolean;
 };
 
@@ -81,7 +83,6 @@ export const projects: Project[] = [
     technologies: ["React", "JavaScript"],
     github: "https://github.com/kaungsike/Hackatom2025",
     demo: "https://hackatom2025.vercel.app/",
-
   },
   {
     name: "Project Show Voting System",
@@ -92,26 +93,42 @@ export const projects: Project[] = [
     isPrivate: true,
   },
   {
-    name: "Snaekers E-commerce Project",
+    name: "Student Feedback System for third year first semester University of Computer Studies, Hpa-An",
     description:
-      "E-commerce project for sneaker enthusiasts, built with Vite and JavaScript.This project is my javascript practice project, so the code quality is not good.",
-    technologies: ["Vite", "JavaScript"],
+      "Student Feedback System for third year first semester University of Computer Studies, Hpa-An, built with PHP and MySQL. This system allows students to provide feedback on their courses and instructors, helping the university improve the quality of education.",
+    technologies: ["PHP", "JavaScript", "MySQL"],
+    github:
+      "https://github.com/kaungsike/student-feedback-system-for-third-year-university-project.git",
+  },
+  {
+    name: "Room & Meal Management System for third year second semester University of Computer Studies, Hpa-An",
+    description:
+      "Room & Meal Management System for third year second semester University of Computer Studies, Hpa-An, built with PHP and MySQL. This system allows students to manage their room and meal bookings, helping the university improve the quality of student life.",
+    technologies: ["C#", "ASP.NET", "Microsoft SQL Server"],
+    github:
+      "https://github.com/kaungsike/student-feedback-system-for-third-year-university-project.git",
+  },
+  {
+    name: "Sneakers E-commerce Project",
+    description:
+      "E-commerce project for sneaker enthusiasts, built with Vite.js and JavaScript.This project is my javascript practice project, so the code quality is not good.",
+    technologies: ["Vite.js", "JavaScript"],
     github: "https://github.com/kaungsike/sneakers-ecommerce.git",
     demo: "https://sneakers-ecommerce-kaungsike.vercel.app/",
   },
-    {
+  {
     name: "Invoice Web Application",
     description:
-      "My personal invoice web application built with Vite and JavaScript, designed to help freelancers and small businesses manage their invoices efficiently. This project is a practice project for me to learn Vite, so the code quality is not good.",
-    technologies: ["Vite", "JavaScript","Tailwind CSS"],
+      "My personal invoice web application built with Vite.js and JavaScript, designed to help freelancers and small businesses manage their invoices efficiently. This project is a practice project for me to learn Vite.js, so the code quality is not good.",
+    technologies: ["Vite.js", "JavaScript", "Tailwind CSS"],
     github: "https://github.com/kaungsike/Invoice-App-Vite.git",
     demo: "https://invoice-app-vite-kaungsike.vercel.app/",
   },
-      {
+  {
     name: "Qr Code Generator",
     description:
-      "A simple QR code generator built with Vite and JavaScript. This project is a practice project for me to learn Vite, so the code quality is not good.",
-    technologies: ["JavaScript"],
+      "A simple QR code generator built with Vite.js and JavaScript. This project is a practice project for me to learn Vite.js, so the code quality is not good.",
+    technologies: ["Vite.js", "JavaScript"],
     github: "https://github.com/kaungsike/QR-Code-Generator-JS-Vite.git",
     demo: "https://qr-code-generator-js-vite-kaungsike.vercel.app/",
   },
