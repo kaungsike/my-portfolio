@@ -36,6 +36,21 @@ export default function Contact() {
       href: `mailto:${profile.email}`,
       external: false,
     },
+    {
+      id: 'contact-linkedin',
+      label: 'LinkedIn',
+      description: 'Connect with me on LinkedIn',
+      href: 'https://www.linkedin.com/in/kaung-sike-09b85538b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      external: true,
+    },
+    {
+      id: 'contact-facebook',
+      label: 'Facebook',
+      description: 'Follow me on Facebook',
+      href: 'https://www.facebook.com/share/1LCaNaVrBj/?mibextid=wwXIfr',
+      external: true,
+    },
+    
   ]
 
   return (
