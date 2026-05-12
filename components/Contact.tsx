@@ -3,8 +3,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { profile } from '@/lib/data'
-import { useLang } from '@/lib/context'
-import { translations } from '@/lib/translations'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -15,24 +13,25 @@ const fadeUp = {
   }),
 }
 
+const contactHeading = "Let's work together"
+const contactBody = "I'm open to full-time roles, freelance projects, and collaboration. Feel free to reach out."
+
 export default function Contact() {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
-  const { lang } = useLang()
-  const t = translations[lang].contact
 
   const links = [
     {
       id: 'contact-github',
-      label: t.github,
-      description: t.githubDesc,
+      label: 'GitHub',
+      description: 'See my code',
       href: profile.github,
       external: true,
     },
     {
       id: 'contact-email',
-      label: t.email,
-      description: t.emailDesc,
+      label: 'Email',
+      description: 'Get in touch',
       href: `mailto:${profile.email}`,
       external: false,
     },
@@ -60,21 +59,21 @@ export default function Contact() {
           variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0}
           className="text-xs font-semibold text-indigo-500 tracking-[0.12em] uppercase mb-3"
         >
-          {t.label}
+          Contact
         </motion.p>
 
         <motion.h2
           variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0.1}
           className="text-[clamp(28px,5vw,40px)] font-bold tracking-[-0.03em] text-gray-900 dark:text-[#f0f0f0] leading-[1.15] mb-4"
         >
-          {t.heading}
+          {contactHeading}
         </motion.h2>
 
         <motion.p
           variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'} custom={0.2}
           className="text-base text-gray-500 dark:text-[#666] leading-[1.7] mb-12"
         >
-          {t.body}
+          {contactBody}
         </motion.p>
 
         <motion.div

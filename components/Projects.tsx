@@ -3,8 +3,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { projects, profile } from "@/lib/data";
-import { useLang } from "@/lib/context";
-import { translations } from "@/lib/translations";
 import TechIcon from "@/components/TechIcon";
 
 const fadeUp = {
@@ -20,11 +18,11 @@ const fadeUp = {
   }),
 };
 
+const projectsHeading = "Things I've built";
+
 export default function Projects() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const { lang } = useLang();
-  const t = translations[lang].projects;
 
   return (
     <section
@@ -39,7 +37,7 @@ export default function Projects() {
           custom={0}
           className="text-xs font-semibold text-indigo-500 tracking-[0.12em] uppercase mb-3"
         >
-          {t.label}
+          Projects
         </motion.p>
         <motion.h2
           variants={fadeUp}
@@ -48,7 +46,7 @@ export default function Projects() {
           custom={0.1}
           className="text-[clamp(28px,5vw,40px)] font-bold tracking-[-0.03em] text-gray-900 dark:text-[#f0f0f0] mb-12"
         >
-          {t.heading}
+          {projectsHeading}
         </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5">
@@ -153,7 +151,7 @@ export default function Projects() {
                   >
                     <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.026A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.295 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
                   </svg>
-                  {project.isPrivate ? t.privateRepo : t.repository}
+                  {project.isPrivate ? "Private Repo" : "Repository"}
                 </a>
               </div>
             </motion.div>
@@ -175,7 +173,7 @@ export default function Projects() {
             rel="noopener noreferrer"
             className="text-sm text-gray-400 dark:text-[#555] no-underline border-b border-gray-200 dark:border-[#333] pb-0.5 hover:text-gray-900 dark:hover:text-[#f0f0f0] hover:border-gray-400 dark:hover:border-[#666] transition-colors duration-200"
           >
-            {t.viewAll(profile.repos)}
+            View all {profile.repos} repositories on GitHub
           </a>
         </motion.div>
       </div>
