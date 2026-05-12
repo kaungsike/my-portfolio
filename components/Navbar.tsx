@@ -1,22 +1,19 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useTheme, useLang } from '@/lib/context'
-import { translations } from '@/lib/translations'
+import { useTheme } from '@/lib/context'
+
+const links = [
+  { label: 'About', href: '#about' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
+]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const { theme, toggleTheme } = useTheme()
-  const { lang, toggleLang } = useLang()
-  const t = translations[lang].nav
-
-  const links = [
-    { label: t.about, href: '#about' },
-    { label: t.skills, href: '#skills' },
-    { label: t.projects, href: '#projects' },
-    { label: t.contact, href: '#contact' },
-  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -64,16 +61,6 @@ export default function Navbar() {
 
         {/* Right-side controls */}
         <div className="flex items-center gap-2">
-          {/* Language toggle */}
-          <button
-            id="nav-lang-toggle"
-            onClick={toggleLang}
-            aria-label="Toggle language"
-            className="text-xs font-semibold px-2 py-1 rounded-md border border-gray-200 dark:border-white/10 text-gray-500 dark:text-[#888] hover:text-gray-900 dark:hover:text-[#f0f0f0] hover:border-gray-400 dark:hover:border-white/25 transition-colors cursor-pointer bg-transparent font-sans"
-          >
-            {lang === 'en' ? 'MM' : 'EN'}
-          </button>
-
           {/* Dark / Light toggle */}
           <button
             id="nav-theme-toggle"
