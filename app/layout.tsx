@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider, LanguageProvider } from '@/lib/context'
+import { ThemeProvider } from '@/lib/context'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = Geist({
@@ -45,14 +45,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <head>
-        {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="bg-white dark:bg-[#0a0a0a] text-gray-900 dark:text-[#f0f0f0] font-sans antialiased transition-colors duration-300">
         <ThemeProvider>
-          <LanguageProvider>
-            {children}
-          </LanguageProvider>
+          {children}
         </ThemeProvider>
         <SpeedInsights />
       </body>
