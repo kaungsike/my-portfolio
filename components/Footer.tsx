@@ -1,19 +1,15 @@
 'use client'
 
 import { profile } from '@/lib/data'
-import { useLang } from '@/lib/context'
-import { translations } from '@/lib/translations'
 
 export default function Footer() {
   const year = new Date().getFullYear()
-  const { lang } = useLang()
-  const t = translations[lang].footer
 
   return (
     <footer className="border-t border-gray-100 dark:border-white/5 py-7 px-6">
       <div className="max-w-275 mx-auto flex items-center justify-between flex-wrap gap-3">
         <p className="text-[13px] text-gray-400 dark:text-[#444]">
-          {t.rights(year, profile.name)}
+          &copy; {year} {profile.name}
         </p>
         <a
           href={profile.github}
